@@ -255,6 +255,8 @@ function initMap() {
         label: marker.label,
         id: marker.id,
       };
+      var marker = loca.id
+      alert("You clicked " + marker + " marker")
       selectedMarkers.push(loca); 
     };
   }
