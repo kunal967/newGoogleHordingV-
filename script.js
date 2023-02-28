@@ -233,6 +233,7 @@ function initMap() {
     google.maps.event.addListener(marker, "click", listenClick(marker));
   }
 
+  //start listning to to pointer clicks after clicking start button
   var addButton = document
   .getElementById("start")
   .addEventListener("click", emptyClicks);
@@ -299,7 +300,6 @@ function displaydetails() {
     alert("Enter All Details.");
     return;
   }
-  // emptyFeilds(cell1, cell2, cell3, cell4, cell5)
   var contents = document.getElementById("contents");
   var newRow = contents.insertRow(row);
   var cell1 = newRow.insertCell(0);
@@ -318,6 +318,8 @@ function displaydetails() {
   }
   localStorage.setItem('mydata',JSON.stringify(tabledata));
   };
+
+
 // Creating route for the pointers clicked
 
 function showRoute() {
@@ -362,11 +364,11 @@ function calculateTotalDistance() {
         total + calculateDistance(selectedMarkers[i], selectedMarkers[i + 1]);
 
     }
-    return total
+    return total.toFixed(4)
   }
   else if(length === 2){
     total += calculateDistance(selectedMarkers[0], selectedMarkers[1])
-    return total
+    return total.toFixed(4)
   }
   else{
     alert('Select more markers')
